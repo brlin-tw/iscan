@@ -90,6 +90,7 @@ Makefile.in
 /stamp-h1
 
 # Ignore automatically-generated files during the build process
+/autom4te.cache/
 *.la
 *.lo
 *.o
