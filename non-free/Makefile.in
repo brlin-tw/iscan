@@ -143,7 +143,6 @@ OTOOL = @OTOOL@
 OTOOL64 = @OTOOL64@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
-PACKAGE_CXX_ABI = @PACKAGE_CXX_ABI@
 PACKAGE_NAME = @PACKAGE_NAME@
 PACKAGE_RELEASE = @PACKAGE_RELEASE@
 PACKAGE_STRING = @PACKAGE_STRING@
@@ -474,7 +473,7 @@ checksum: $(srcdir)/checksums.md5
 @ENABLE_FRONTEND_TRUE@	  *)	echo "unsupported architecture" 1>&2; \
 @ENABLE_FRONTEND_TRUE@		exit 1;; \
 @ENABLE_FRONTEND_TRUE@	esac; \
-@ENABLE_FRONTEND_TRUE@	$(LN_S) $(srcdir)/libesmod-$${arch}$(PACKAGE_CXX_ABI).so $@
+@ENABLE_FRONTEND_TRUE@	$(LN_S) $(srcdir)/libesmod-$${arch}.c2.so $@
 
 @ENABLE_FRONTEND_TRUE@install-exec-local: $(NON_FREE_SOLIBS)
 @ENABLE_FRONTEND_TRUE@	$(mkinstalldirs) $(DESTDIR)$(libdir)

@@ -65,7 +65,7 @@ $(NON_FREE_SOLIBS):
 	  *)	echo "unsupported architecture" 1>&2; \
 		exit 1;; \
 	esac; \
-	$(LN_S) $(srcdir)/libesmod-$${arch}$(PACKAGE_CXX_ABI).so $@
+	$(LN_S) $(srcdir)/libesmod-$${arch}.c2.so $@
 
 install-exec-local: $(NON_FREE_SOLIBS)
 	$(mkinstalldirs) $(DESTDIR)$(libdir)

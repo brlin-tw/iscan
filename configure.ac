@@ -62,27 +62,6 @@ dnl  checks for programs
 
 AC_PROG_CXX
 
-#  Transitionary check for the C++ ABI while we are switching provided
-#  binaries from gcc-3.[23] to gcc-3.4 or later.  Currently gcc-3.[23]
-#  is still the official compiler version to use, but experimental bi-
-#  naries are released with a ".c2" suffix.
-#  The CXX_ABI for gcc-3.[23] is 102, btw.
-#  Note that the PACKAGE_RELEASE for the gcc-3.4 or later packages has
-#  to be larger than that for the gcc-3.[23] packages (as long as both
-#  are distributed) for smooth upgrade paths.
-
-if test x"$CXX" = xg++; then
-    AC_MSG_CHECKING([C++ ABI version])
-    CXX_ABI="`$CXX -E -dM - < /dev/null | $AWK '/GXX_ABI/ { print $3 }'`"
-    AC_MSG_RESULT([$CXX_ABI])
-    if test x"$CXX_ABI" = x1002; then
-        PACKAGE_CXX_ABI=".c2"
-    else
-        PACKAGE_CXX_ABI=""
-    fi
-    AC_SUBST(PACKAGE_CXX_ABI)
-fi
-
 AC_PROG_CC
 AC_PROG_CPP
 AC_PROG_INSTALL
