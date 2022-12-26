@@ -108,6 +108,10 @@ namespace iscan
                png_structp);
       fundecl (void, write_end,
                png_structp, png_infop);
+#if PNG_LIBPNG_VER > 10499
+      fundecl (png_uint_32, get_current_row_number,
+               png_structp);
+#endif
 #endif /* HAVE_PNG_H */
     };
     static png_lib_handle *lib;

@@ -83,7 +83,12 @@ namespace iscan
 #if HAVE_PNG_H
     set_error_handler (_png, _info);
 
+/* when not interlacing (ie, only one pass), number of rows is image height:  _v_sz */
+#if PNG_LIBPNG_VER > 10499
+        if (!_footer && _v_sz == lib->get_current_row_number(_png))
+#else
     if (_header && !_footer && _png->num_rows == _png->flush_rows)
+#endif
       {
         lib->write_end (_png, _info);
         _footer = true;
@@ -157,6 +162,9 @@ namespace iscan
     funcsym (write_row);
     funcsym (write_flush);
     funcsym (write_end);
+#if PNG_LIBPNG_VER > 10499
+    funcsym (get_current_row_number);
+#endif
 
     if (lib->access_version_number
         && lib->create_write_struct
@@ -166,6 +174,9 @@ namespace iscan
         && lib->set_IHDR
         && lib->set_pHYs
         && lib->set_invert_mono
+#if PNG_LIBPNG_VER > 10499
+	&& lib->get_current_row_number
+#endif
         && lib->write_info
         && lib->write_row
         && lib->write_flush
