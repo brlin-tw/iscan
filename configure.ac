@@ -261,6 +261,9 @@ AC_DEFUN([ISCAN_FILE_FORMAT],
 		  AC_HELP_STRING([--enable-$1],
 				 [ensure support for the $3 file format]),
 		  [if test "x$enable_$1" != xno; then
+		      if test "x$4" != xno; then
+		         PKG_CHECK_MODULES($3,[$4])
+		      fi
 		      iff_header="`echo $2 | $as_tr_sh`"
 		      AC_CHECK_HEADERS([$2])
 		      if test `eval echo '$ac_cv_header_'$iff_header` \
@@ -271,9 +274,9 @@ AC_DEFUN([ISCAN_FILE_FORMAT],
 		  [AC_CHECK_HEADERS([$2])])
    ])
 
-ISCAN_FILE_FORMAT(jpeg,jpeglib.h,JPEG)
-ISCAN_FILE_FORMAT(png,png.h,PNG)
-ISCAN_FILE_FORMAT(tiff,tiffio.h,TIFF)
+ISCAN_FILE_FORMAT(jpeg,jpeglib.h,JPEG,no)
+ISCAN_FILE_FORMAT(png,png.h,PNG,libpng)
+ISCAN_FILE_FORMAT(tiff,tiffio.h,TIFF,no)
 
 
 dnl  Support for performance measurements.
