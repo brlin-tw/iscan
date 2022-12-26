@@ -33,7 +33,7 @@
 
 #include "jpegstream.hh"
 
-#include <cstdlib>
+// #include <cstdlib>
 #include <ios>
 
 namespace iscan
@@ -82,7 +82,8 @@ namespace iscan
         //        only that _bits != 8.
         for (unsigned int i = 0; i < _h_sz; ++i)
           {
-            div_t index = div (i, 8 * sizeof (JSAMPLE));
+            div_t index = div (static_cast<int>(i),
+                               static_cast<int>(8 * sizeof (JSAMPLE)));
             int offset = 8 * sizeof (JSAMPLE) - 1 - index.rem;
             _scanline[i] = ((line[index.quot] & (1 << offset))
                             ? 0 : ~0);
