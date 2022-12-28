@@ -245,13 +245,10 @@ AC_CHECK_FUNCS([\
 dnl  The somewhat obscure LT_AC_PROG_SED is here to make sure that the
 dnl  SED environment variable gets set before it's used by the libtool
 dnl  machinery.  This works around buggy libtool versions.
-LT_AC_PROG_SED
-AC_LIBLTDL_INSTALLABLE
-AC_LIBTOOL_DLOPEN
 AC_PROG_LIBTOOL
-AC_LIB_LTDL
-AC_SUBST(LTDLINCL)
-AC_SUBST(LIBLTDL)
+AC_LTDL_SHLIBPATH
+AC_LTDL_SHLIBEXT
+AC_LTDL_SYSSEARCHPATH
 
 
 dnl  Graphic file format options

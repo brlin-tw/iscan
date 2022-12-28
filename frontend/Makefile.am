@@ -34,7 +34,7 @@ iscan_CXXFLAGS = \
 iscan_LDADD = \
 	$(top_builddir)/lib/libimage-stream.la \
 	-lsane \
-	@LIBLTDL@ \
+	-lltdl \
 	@GTK_LIBS@ \
 	@GDK_IMLIB_LIBS@ \
 	@PNG_LIBS@ \

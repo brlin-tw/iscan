@@ -30,7 +30,7 @@ noinst_LTLIBRARIES = libimage-stream.la
 libimage_stream_la_CPPFLAGS = -I$(top_srcdir)/include
 libimage_stream_la_LDFLAGS = -static
 libimage_stream_la_LIBADD  = \
-	$(LIBLTDL) \
+	-lltdl \
 	$(top_builddir)/lib/pdf/libpdf.la
 libimage_stream_la_SOURCES = \
 	$(libimage_stream_la_files)

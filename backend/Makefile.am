@@ -58,7 +58,6 @@ noinst_LTLIBRARIES = \
 
 libepkowa_la_CPPFLAGS = \
 	$(AM_CPPFLAGS) \
-	$(LTDLINCL) \
 	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/non-free \
 	$(XML_CFLAGS) \
@@ -70,7 +69,7 @@ libepkowa_la_LIBADD = \
 	-lm \
 	$(XML_LIBS) \
 	$(LIBUSB_1_0_LIBS) \
-	$(LIBLTDL)
+	-lltdl
 libepkowa_la_SOURCES = \
 	$(sane_backends_files) \
 	ipc.c \
