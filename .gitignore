@@ -80,6 +80,19 @@
 # Don't track GNU gettext machine-readable message catalogs
 *.mo
 
+# Ignore automatically-generated files during the bootstrap process
+/aclocal.m4
+/compile
+/config.h.in
+/configure
+/ltmain.sh
+/m4/libtool.m4
+/m4/ltoptions.m4
+/m4/ltversion.m4
+/m4/lt~obsolete.m4
+/po/Makevars.template
+/test-driver
+
 # Ignore automatically-generated files during the configure process
 /config.h
 /config.status
