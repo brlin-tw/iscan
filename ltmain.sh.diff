@@ -1,6 +1,13 @@
---- ltmain.sh	2006-06-20 04:29:20.000000000 +0900
-+++ ltmain.sh	2007-07-13 20:02:36.000000000 +0900
-@@ -3926,6 +3926,23 @@
+--- ltmain.sh.orig	2022-12-28 22:52:28.778793502 +0800
++++ ltmain.sh	2022-12-28 22:52:35.234686855 +0800
+@@ -9703,20 +9703,37 @@
+ 
+ 	if test -n "$soname_spec"; then
+ 	  eval soname=\"$soname_spec\"
+ 	else
+ 	  soname=$realname
+ 	fi
+ 	if test -z "$dlname"; then
  	  dlname=$soname
  	fi
  
@@ -21,17 +28,31 @@
 +	esac
 +## SANE modification (end)
 +
- 	lib="$output_objdir/$realname"
+ 	lib=$output_objdir/$realname
  	linknames=
  	for link
-@@ -4189,11 +4206,14 @@
+ 	do
+ 	  func_append linknames " $link"
+ 	done
+ 
+ 	# Use standard objects if they are pic
+ 	test -z "$pic_flag" && libobjs=`$ECHO "$libobjs" | $SP2NL | $SED "$lo2o" | $NL2SP`
+ 	test "X$libobjs" = "X " && libobjs=
+@@ -10162,25 +10179,28 @@
+ 	  exit $EXIT_SUCCESS
+ 	fi
+ 
+ 	# Create links to the real library.
+ 	for linkname in $linknames; do
+ 	  if test "$realname" != "$linkname"; then
+ 	    func_show_eval '(cd "$output_objdir" && $RM "$linkname" && $LN_S "$realname" "$linkname")' 'exit $?'
  	  fi
  	done
  
 -	# If -module or -export-dynamic was specified, set the dlname.
--	if test "$module" = yes || test "$export_dynamic" = yes; then
+-	if test yes = "$module" || test yes = "$export_dynamic"; then
 -	  # On all known operating systems, these are identical.
--	  dlname="$soname"
+-	  dlname=$soname
 -	fi
 +## SANE modification (start)
 +## Moved before the soname modification needed by SANE.
@@ -44,3 +65,10 @@
        fi
        ;;
  
+     obj)
+       if test -n "$dlfiles$dlprefiles" || test no != "$dlself"; then
+ 	func_warning "'-dlopen' is ignored for objects"
+       fi
+ 
+       case " $deplibs" in
+       *\ -l* | *\ -L*)
