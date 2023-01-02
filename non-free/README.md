@@ -1,0 +1,7 @@
+# non-free
+
+This folder should contain EPSON's "esmod" library, which is licensed under [EPSON END USER SOFTWARE LICENSE AGREEMENT](COPYING.EPSON.en.txt) and is NOT included in the source tree due to the upstream's non-redistibutable licensing terms:
+
+> 3. Other Rights and Limitations.  You agree not to modify, adapt or translate the Software and further agree not to attempt to reverse engineer, decompile, disassemble or otherwise attempt to discover the source code of the Software.  **You may not rent, lease, distribute, lend the Software to third parties or incorporate the Software into a revenue generating product or service.**  You may, however, transfer all of your rights to use the Software to another person or legal entity, provided that the recipient also agrees to the terms of this Agreement and you transfer the Software, including all copies, updates and prior versions, and the Epson Hardware, to such person or entity.  The Software is licensed as a single unit, and its component programs may not be separated for some other use.  Further, you agree not to place the Software onto or into a shared environment accessible via a public network such as the Internet or otherwise accessible by others outside the single location referred to in Section 1 above.
+
+A script should soon be available to workaround this issue by acquire and extract these files here on user behalf, the checksums of the files should match [the checksums.md5 file](the checksums.md5 file).
