@@ -118,3 +118,6 @@ Makefile.in
 
 # Ignore failed applied patch hunks
 *.rej
+
+# Ignore common debug output files
+*.out.txt
