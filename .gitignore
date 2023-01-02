@@ -104,6 +104,11 @@ Makefile.in
 
 # Ignore automatically-generated files during the build process
 /autom4te.cache/
+/doc/iscan-registry.8
+/doc/iscan.1
+/doc/sane-epkowa.5
+/frontend/iscan
+/utils/iscan-registry
 *.la
 *.lo
 *.o
