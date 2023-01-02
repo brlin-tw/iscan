@@ -121,3 +121,7 @@ Makefile.in
 
 # Ignore common debug output files
 *.out.txt
+
+# Ignore EPSON's non-free resources
+/non-free/esmod.hh
+/non-free/libesmod*
